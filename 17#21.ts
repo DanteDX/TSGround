@@ -18,4 +18,18 @@ const parsedDataFixed: {x: number; y: number;} = JSON.parse(json);
 console.log(parsedDataFixed.x);
 console.log(parsedDataFixed.y);
 
+// trying out by myself
+const integerNumbers: number[] = [2,3,4];
+const integerNumbersSquared: number[] = integerNumbers.map((each: number):number => each * each);
+console.log(integerNumbersSquared);
 
+const moneyChecker: (money:number) => (boolean | number) = (money: number) =>{
+    let hasMoney: (number | boolean) = false; // inference in action
+    if(money > 0){
+        hasMoney = money;
+    }
+    return hasMoney;
+}
+console.log(moneyChecker(-1000));
+console.log(moneyChecker(1000));
+// My trying ends here
