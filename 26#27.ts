@@ -42,3 +42,23 @@ const {firstName,age,position:{lat,lng},title} : {
 } = profileMine;
 
 console.log(firstName,age,lat,lng,title);
+
+// how to use destructuring more efficiently using interface
+
+const myInfo = {
+    firstname:'shadman',
+    profession:'web developer',
+    age:20,
+    color:'red'
+};
+
+interface infoInterface{
+    firstname:string;
+    profession:string;
+    age:number;
+    color:string;
+}
+
+const {firstname,profession,age,color}:infoInterface = myInfo;
+console.log(firstname,profession,age,color);
+console.log("#################################################");
