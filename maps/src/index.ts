@@ -12,10 +12,11 @@
 // console.log(company.companyName);
 // console.log(company.catchPhrase);
 // console.log(company.location);
-new google.maps.Map(document.getElementById("mapzz"),{
-    zoom:3,
-    center:{
-        lat:0,
-        lng:0
-    }
-});
+import {User} from "./User";
+import {CustomMap} from "./CustomMap";
+import {Company} from "./Company";
+let OurMap = new CustomMap('mapzz');
+let user = new User();
+let company = new Company();
+OurMap.addMarker(user);
+OurMap.addMarker(company);
