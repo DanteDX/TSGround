@@ -1,38 +1,17 @@
-interface SorterInterface{
-  collection: number[] | string;
-  Sort():void;
-}
+/* We are going to build a Sort class which sorts Number arrays and Strings according to ASCII Code */
+/* We are going to code in such a way so that our code will be reusable */
 
+import {Sort} from "./Sort";
+import {NumbersCollection} from "./NumbersCollection";
+import {StringCollection} from "./StringCollection";
 
-class Sorter implements SorterInterface{
-  collection: number[] | string;
+let numbersCollection = new NumbersCollection([4,3,1,0,-1,11,0]);
+let stringCollection = new StringCollection("Bangladesh");
 
-  constructor(collection: (number[] | string)){
-    this.collection = collection;
-  }
+let sortMethodNumber = new Sort(numbersCollection);
+sortMethodNumber.sort();
+console.log(sortMethodNumber.collection.data);
 
-  Sort():void{
-    const length = this.collection.length;
-    if(this.collection instanceof Array){
-        for(let i = 0;i<length;i++){
-        for(let j = 0;j<length - i - 1;j++){
-          if(this.collection[j] > this.collection[j+1]){
-            let temp = this.collection[j];
-            this.collection[j] = this.collection[j+1];
-            this.collection[j+1] = temp;
-          }
-        }
-      }
-    }
-    if(typeof(this.collection) === 'string'){
-      this.collection = this.collection.split("").sort().join("");
-    }
-  }
-}
-let SorterArray = new Sorter([10,11,9,8,-1,-3,4,10]);
-SorterArray.Sort();
-console.log(SorterArray.collection);
-
-let SorterString = new Sorter("bangladesh");
-SorterString.Sort();
-console.log(SorterString.collection);
+let sortMethodString = new Sort(stringCollection);
+sortMethodString.sort();
+console.log(sortMethodString.collection.data);
