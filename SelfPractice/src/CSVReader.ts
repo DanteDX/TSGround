@@ -7,6 +7,11 @@ interface CSVReaderInterface{
   getData(): DataTupple[];
 }
 
+enum GenderResult{
+  MaleGender = "Male",
+  FemaleGender = "Female"
+}
+
 export default class CSVReader implements CSVReaderInterface{
   filename: string;
   data: string[][];
@@ -23,9 +28,9 @@ export default class CSVReader implements CSVReaderInterface{
   getData(): DataTupple[]{
     return this.data.map((eachRow: string[]): DataTupple => {
       if (eachRow[0] === 'id') {
-        return [0, eachRow[1], eachRow[1], eachRow[2], eachRow[3], eachRow[4]];
+        return [0, eachRow[1], eachRow[2], eachRow[3], eachRow[4] as GenderResult, eachRow[5]];
       } else {
-        return [Number(eachRow[0]), eachRow[1], eachRow[1], eachRow[2], eachRow[3], eachRow[4]]  
+        return [Number(eachRow[0]), eachRow[1], eachRow[2], eachRow[3], eachRow[4] as GenderResult, eachRow[5]]  
       }
     })
   }

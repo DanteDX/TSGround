@@ -19,6 +19,6 @@ console.log(`
   <h1>Males are: ${maleCounter}</h1>
 `);
 
-import { DateConverter } from "./utils/DateConverter";
-console.log(DateConverter("11/10/2010"));// new Date(2010,9,12)
-console.log(new Date(2010, 3, 10));// 2010,4,9
+// import { DateConverter } from "./utils/DateConverter";
+// console.log(DateConverter("11/10/2010"));// new Date(2010,9,12)
+// console.log(new Date(2010, 3, 10));// 2010,4,9
