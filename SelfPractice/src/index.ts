@@ -1,4 +1,5 @@
-import  CSVReader from "./CSVReader";
-let csvReader = new CSVReader("MOCK_DATA.csv");
-csvReader.read();
-console.log(csvReader.getData());
+import CSVReader from "./CSVReader";
+
+let reader = new CSVReader("MOCK_DATA.csv");
+reader.read();
+console.log(reader.getData());
