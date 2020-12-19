@@ -1,9 +1,15 @@
 import fs from "fs";
+type DataTupple = [number, string, string, string, string, string];
 interface CSVReaderInterface{
   filename: string;
   data: string[][];
   read(): void;
-  getData(): string[][];
+  getData(): DataTupple[];
+}
+
+enum GenderResult{
+  MaleGender = "Male",
+  FemaleGender = "Female"
 }
 
 export default class CSVReader implements CSVReaderInterface{
@@ -19,7 +25,13 @@ export default class CSVReader implements CSVReaderInterface{
     }).split("\n")
       .map((eachString: string): string[] => eachString.split(","));
   }
-  getData(): string[][]{
-    return this.data;
+  getData(): DataTupple[]{
+    return this.data.map((eachRow: string[]): DataTupple => {
+      if (eachRow[0] === 'id') {
+        return [0, eachRow[1], eachRow[2], eachRow[3], eachRow[4] as GenderResult, eachRow[5]];
+      } else {
+        return [Number(eachRow[0]), eachRow[1], eachRow[2], eachRow[3], eachRow[4] as GenderResult, eachRow[5]]  
+      }
+    })
   }
 }
